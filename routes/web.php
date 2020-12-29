@@ -20,5 +20,8 @@ use App\Http\Controllers\HomeController;
 
 Auth::routes();
 
+/*HOME ROUTE FOR NORMAL USER*/
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+/*HOME ROUTE FOR ADMIN*/
 Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
