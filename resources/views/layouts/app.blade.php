@@ -8,14 +8,32 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <!-- title of site -->
+    <title>Furniture</title>
+        <!--font-family-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <!-- For favicon png -->
+    <link rel="shortcut icon" type="image/icon" href="{{ asset('logo/favicon.png') }}"/>
+    <!--font-awesome.min.css-->
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <!--linear icon css-->
+    <link rel="stylesheet" href="{{ asset('css/linearicons.css') }}">
+    <!--animate.css-->
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <!--owl.carousel.css-->
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
+    <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- bootsnav -->
+    <link rel="stylesheet" href="{{ asset('css/bootsnav.css') }}" >	
+    <!--style.css-->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!--responsive.css-->
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="dns-prefetch" href="{{ asset('//fonts.gstatic.com') }}">
+    <link href="{{ asset('https://fonts.googleapis.com/css?family=Nunito') }}" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -79,5 +97,47 @@
             @yield('content')
         </main>
     </div>
+
+            <!--footer start-->
+    <footer id="footer"  class="footer">
+        <div class="container">
+            <div class="hm-footer-copyright text-center">
+                <div class="footer-social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>	
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>	
+                </div>
+                <p>
+                    &copy;copyright. 2020 SEO-ERA - All Rights Reserved.
+                </p><!--/p-->
+            </div><!--/.text-center-->
+        </div><!--/.container-->
+
+        <div id="scroll-Top">
+            <div class="return-to-top">
+                <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+            </div>
+            
+        </div><!--/.scroll-Top-->
+        
+    </footer><!--/.footer-->
+    <!--footer end-->
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <!--modernizr.min.js-->
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') }}"></script>
+    <!--bootstrap.min.js-->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- bootsnav js -->
+    <script src="{{ asset('js/bootsnav.js') }}"></script>
+    <!--owl.carousel.js-->
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js') }}"></script>
+    <!--Custom JS-->
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>
