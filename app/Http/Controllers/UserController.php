@@ -34,7 +34,7 @@ class UserController extends Controller
             'is_admin' => $request->is_admin,
         ]);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User added successfully');
     }
 
     public function edit($id) {
@@ -52,7 +52,7 @@ class UserController extends Controller
         $user->is_admin = $request->input('is_admin');
         $user->save();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success', 'User Updated successfully');
     }
 
     public function destroy($id) {
