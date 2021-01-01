@@ -32,8 +32,14 @@
         </div>
         <div class="form-group">
             <select name="is_admin" id="is_admin">
-                <option value="0" selected>Not Admin</option>
+                <option value="0" selected>Normal User</option>
                 <option value="1">Admin</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="is_banned" id="is_banned">
+                <option value="0" selected>Activated</option>
+                <option value="1">Deactivated</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

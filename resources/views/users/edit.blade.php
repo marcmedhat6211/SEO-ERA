@@ -32,8 +32,14 @@
         </div>
         <div class="form-group">
             <select name="is_admin" id="is_admin">
-                <option value="0" selected>Not Admin</option>
-                <option value="1">Admin</option>
+                <option value="0" {{ $user->is_admin ? 'selected' : '' }}>Not Admin</option>
+                <option value="1" {{ $user->is_admin ? 'selected' : '' }}>Admin</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="is_banned" id="is_banned">
+                <option value="0" {{ $user->is_banned ? 'selected' : '' }}>Activated</option>
+                <option value="1" {{ $user->is_banned ? 'selected' : '' }}>Deactivated</option>
             </select>
         </div>
         {{ Form::hidden('_method', 'PUT') }}

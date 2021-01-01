@@ -8,7 +8,9 @@ use App\Http\Controllers\ProductController;
 Auth::routes();
 
 /*HOME ROUTE FOR NORMAL USER*/
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'is_user'], function() {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+});
 
 /*ADMIN ROUTES*/
 Route::group(['middleware' => 'is_admin'], function() {

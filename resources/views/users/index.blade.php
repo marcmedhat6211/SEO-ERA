@@ -22,6 +22,7 @@
                 <th>Email</th>
                 <th>Phone Number</th>
                 <th>Admin</th>
+                <th>Activated/Deactivated</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -32,7 +33,20 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->phone_number }}</td>
-                <td>{{ $user->is_admin }}</td>
+                <td>
+                    @if( $user->is_admin )
+                        Admin
+                    @else
+                        Normal User
+                    @endif
+                </td>
+                <td>
+                    @if( $user->is_banned )
+                        Deactivated
+                    @else
+                        Activated
+                    @endif
+                </td>
                 <td>
                     <a href="{{ route('users.edit', ['user' => $user->id]) }}" class="btn btn-primary btn-sm">Edit</a>
                 </td>

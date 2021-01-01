@@ -32,6 +32,7 @@ class UserController extends Controller
             'phone_number' => $request->phone_number,
             'password' => bcrypt($request->password),
             'is_admin' => $request->is_admin,
+            'is_banned' => $request->is_banned,
         ]);
 
         return redirect()->route('users.index')->with('success', 'User added successfully');
@@ -50,6 +51,7 @@ class UserController extends Controller
         $user->phone_number = $request->input('phone_number');
         $user->password = $request->input('password');
         $user->is_admin = $request->input('is_admin');
+        $user->is_banned = $request->input('is_banned');
         $user->save();
 
         return redirect()->route('users.index')->with('success', 'User Updated successfully');
