@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
 Auth::routes();
 
 /*HOME ROUTE FOR NORMAL USER*/
-Route::group(['middleware' => 'is_user'], function() {
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['is_user', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function() {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
