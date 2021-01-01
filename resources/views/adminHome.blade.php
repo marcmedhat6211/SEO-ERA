@@ -2,10 +2,9 @@
 
 @section('content')
 <div class="sidebar">
-  <a class="active" href="#home">Home</a>
+  <a class="active" href="{{ route('admin.home') }}">Home</a>
   <a href="{{ route('users.index') }}">users</a>
   <a href="{{ route('products.index') }}">Products</a>
-  <a href="#about">Languages</a>
 </div>
 <style>
     /* The side navigation menu */

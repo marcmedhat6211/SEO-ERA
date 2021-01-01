@@ -31,7 +31,7 @@
             <tr>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
-                <td>{{ $product->price }}</td>
+                <td>${{ $product->price }}</td>
                 <td><img style="height: 40px; width: 40px" src="{{ asset('images/' . $product->image) }}" alt=""></td>
                 <td>
                     <a href="{{ route('products.edit', ['product' => $product->id]) }}" class="btn btn-primary btn-sm">Edit</a>

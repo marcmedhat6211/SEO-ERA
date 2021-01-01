@@ -51,10 +51,6 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -89,15 +85,91 @@
                             </div>
                         </li>
                         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                            <li>
-                                <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a>
-                            </li>
+                        <li>
+                            <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native'] }}</a>
+                        </li>
                         @endforeach
+                        <li>
+                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                        </li>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
+
+        @if( Auth::check() && Auth::user()->is_admin == 1 )
+        <div class="sidebar">
+            <a class="active" href="{{ route('home') }}">Home</a>
+            <a href="{{ route('users.index') }}">users</a>
+            <a href="{{ route('products.index') }}">Products</a>
+        </div>
+        <style>
+            /* The side navigation menu */
+            .sidebar {
+                margin: 0;
+                padding: 0;
+                width: 200px;
+                background-color: #f1f1f1;
+                position: fixed;
+                height: 100%;
+                overflow: auto;
+            }
+
+            /* Sidebar links */
+            .sidebar a {
+                display: block;
+                color: black;
+                padding: 16px;
+                text-decoration: none;
+            }
+
+            /* Active/current link */
+            .sidebar a.active {
+                background-color: #4CAF50;
+                color: white;
+            }
+
+            /* Links on mouse-over */
+            .sidebar a:hover:not(.active) {
+                background-color: #555;
+                color: white;
+            }
+
+            /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+            div.content {
+                margin-left: 200px;
+                padding: 1px 16px;
+                height: 1000px;
+            }
+
+            /* On screens that are less than 700px wide, make the sidebar into a topbar */
+            @media screen and (max-width: 700px) {
+                .sidebar {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                }
+
+                .sidebar a {
+                    float: left;
+                }
+
+                div.content {
+                    margin-left: 0;
+                }
+            }
+
+            /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+            @media screen and (max-width: 400px) {
+                .sidebar a {
+                    text-align: center;
+                    float: none;
+                }
+            }
+        </style>
+        @endif
+
 
         <main class="py-4">
             @yield('content')
