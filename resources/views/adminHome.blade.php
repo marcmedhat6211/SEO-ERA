@@ -4,7 +4,7 @@
 <div class="sidebar">
   <a class="active" href="#home">Home</a>
   <a href="{{ route('users.index') }}">users</a>
-  <a href="#contact">Products</a>
+  <a href="{{ route('products.index') }}">Products</a>
   <a href="#about">Languages</a>
 </div>
 <style>
