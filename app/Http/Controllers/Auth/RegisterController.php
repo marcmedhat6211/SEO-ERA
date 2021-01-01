@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Mail\WelcomeUserMain;
+use App\Jobs\WelcomeEmailJob;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -73,8 +72,8 @@ class RegisterController extends Controller
             'phone_number' => $data['phone_number'],
             'password' => Hash::make($data['password']),
         ]);
+        dispatch(new WelcomeEmailJob($user));
 
-        Mail::to($user)->send(new WelcomeUserMain());
         return $user;
     }
 }
