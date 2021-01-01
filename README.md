@@ -1,3 +1,41 @@
+**HOW TO START THE PROJECT**
+  *Please run the following commands in the same order*
+  1- git clone https://github.com/marcmedhat6211/SEO-ERA.git
+  2- cd SEO-ERA/
+  3- composer install
+  4- configure .env file on your local machine:
+    - Database info
+    - Mail info (note that i am sending a welcome email on user's registration using on mailtrap server so you'll have to create an account on mailtrap and configure your .env file from mailtrap)
+    - If you are going to send an email you'll have to run the following command in order to send the mail quickly and that's the whole point of queues and jobs.
+      php artisan queue:work
+  5- php artisan migrate (to migrate the tables on your local database)
+  *iMPORTANT*
+  6- php artisan db:seed
+    this command will create 2 users in the users table in your database (a normal user and an admin)
+    normal user credentials:
+      email: user@gmail.com
+      password: 123456
+    admin credentials:
+      email: admin@gmail.com
+      password: 123456
+  *and now you are all set, just run the following command to run the local server and i hope you like the features :)*
+  7- php artisan serve
+  
+  
+  **FEATURES**
+  - multi-auth system (user and admin)
+  - admin has the authority to:
+    CRUD over users and products
+    activate or deactivate a user
+    create normal users and admins
+  - normal user can register, sign in and see the home page and see all the products
+  - a mail is sent to the user using queues and jobs which are a lot faster than the normal way of sending mails
+  - Validations on every post request
+  - there is the option to choose between different languages (but this one is still in progress)
+  
+  
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
